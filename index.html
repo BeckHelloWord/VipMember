@@ -19,117 +19,7 @@
                 <img src="./images/banner-vip.jpg" />
             </div>
             <div class="vip-wrap" id="vip-con">
-                <!-- <div class="vip-table">
-                    <div class="vip-table-title">
-                        <i class="line-left"></i>
-                        <span>会员等级与权益</span>
-                        <i class="line-right"></i>
-                    </div>
-                    <div class="vip-list">
-                        <p class="table-title">会员等级规则</p>
-                        <table class="table-level">
-                            <tr>
-                                <td class="w-24">净资产</td>
-                                <td>1</td>
-                                <td>1</td>
-                                <td>1</td>
-                                <td>1</td>
-                                <td>1</td>
-                                <td>1</td>
-                            </tr>
-                            <tr>
-                                <td class="w-24">会员等级</td>
-                                <td>1</td>
-                                <td>1</td>
-                                <td>1</td>
-                                <td>1</td>
-                                <td>1</td>
-                                <td>1</td>
-                            </tr>
-                        </table>
-                        <p class="table-title">会员特权</p>
-                        <table>
-                            <tr>
-                                <td rowspan="2" class="w-12">基础权益</td>
-                                <td class="w-12">升级礼</td>
-                                <td>1</td>
-                                <td>2</td>
-                                <td>3</td>
-                                <td>4</td>
-                                <td>5</td>
-                                <td>6</td>
-                            </tr>
-                            <tr>
-                                <td class="w-12">升级礼</td>
-                                <td>1</td>
-                                <td>2</td>
-                                <td>3</td>
-                                <td>4</td>
-                                <td>5</td>
-                                <td>6</td>
-                            </tr>
-                            <tr>
-                                <td rowspan="2" class="w-12">基础权益</td>
-                                <td class="w-12">升级礼</td>
-                                <td>1</td>
-                                <td>2</td>
-                                <td>3</td>
-                                <td>4</td>
-                                <td>5</td>
-                                <td>6</td>
-                            </tr>
-                            <tr>
-                                <td class="w-12">升级礼</td>
-                                <td>1</td>
-                                <td>2</td>
-                                <td>3</td>
-                                <td>4</td>
-                                <td>5</td>
-                                <td>6</td>
-                            </tr>
-                            <tr>
-                                <td rowspan="3" class="w-12">基础权益</td>
-                                <td class="w-12">升级礼</td>
-                                <td>1</td>
-                                <td>2</td>
-                                <td>3</td>
-                                <td>4</td>
-                                <td>5</td>
-                                <td>6</td>
-                            </tr>
-                            <tr>
-                                <td class="w-12">升级礼</td>
-                                <td>1</td>
-                                <td>2</td>
-                                <td>3</td>
-                                <td>4</td>
-                                <td>5</td>
-                                <td>6</td>
-                            </tr>
-                            <tr>
-                                <td class="w-12">升级礼</td>
-                                <td>1</td>
-                                <td>2</td>
-                                <td>3</td>
-                                <td>4</td>
-                                <td>5</td>
-                                <td>6</td>
-                            </tr>
-                        </table>
-                    </div>
-                    <div class="vip-login">
-                        <button>立即登录</button>
-                        <p>立即登录查看我的会员等级</p>
-                    </div>
-                </div>
-                <div class="vip-rule">
-                    <p class="rule-title">会员说明</p>
-                    <div class="rule-txt">
-                        1、宝象金融根据会员投资的净资产，将会员分为不同等级，享受不同的权益和增值服务
-                        <br/> 2、净资产=在投金额（含直投标、月月丰、债权转让）+余额+添添金-负债（如个人消费贷）
-                        <br/> 3、会员升级实时更新，会员降级次月1日进行集中处理
-                    </div>
-                </div> -->
+
             </div>
         </div>
     </div>
@@ -194,7 +84,7 @@
                     <button>立即登录</button>
                     <p>立即登录查看我的会员等级</p>
                     {{else}}
-                    <p class="vip-info">{{loginInfo}}</p>
+                    <p class="vip-info">当前存量金额{{memberInfo.haveMoney}}元，距离下一级还差{{memberInfo.differMoney}}元</p>
                     {{/if}}
                 </div>
             </div>
@@ -207,28 +97,42 @@
     </script>
     <script>
         //供登录成功后调用
-        window.vipRefresh=function(){
+        window.vipRefresh = function () {
             location.reload(true);
         }
+
+
+
         $(function () {
+
+
+            //计算当前等级
+            var getOffset = function () {
+                var elOffset = $('.current').offset(),    //当前等级在页面中的我位置
+                    tdHeight = $('.table-level td').eq(0).outerHeight();  //td的高度
+                titleHeight = $('.table-title').outerHeight();    //title的高度
+                tableHeight = $('.vip-list').height();   //table的高度
+                elOffset.top -= tdHeight;
+                elOffset.height = tableHeight - titleHeight;
+                $('.masking').css(elOffset).show();
+            }
+
+            //获取数据渲染模板
             $.get('./data/data.json', function (result) {
-                //渲染模板
                 var html = template('test', result);
                 document.getElementById('vip-con').innerHTML = html;
+                if ((window.loginInfo && window.loginInfo.isLogin) && (result.memberInfo.haveMoney && result.memberInfo.differMoney)) {
+                    getOffset();
+                    $(window).on('resize', function () {
+                        getOffset();
+                    })
+                }
 
 
-                //计算当前等级
-                var elOffset=$('.current').offset(),    //当前等级在页面中的我位置
-                tdHeight=$('.table-level td').eq(0).outerHeight();  //td的高度
-                titleHeight=$('.table-title').outerHeight();    //title的高度
-                tableHeight=$('.vip-list').height();   //table的高度
-                elOffset.top-=tdHeight;
-                elOffset.height=tableHeight-titleHeight;
-                $('.masking').css(elOffset);
-                $(window).on('resize',function(){
-                    
-                })
             })
+
+
+
 
         })
     </script>
