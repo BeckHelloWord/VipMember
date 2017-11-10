@@ -1,0 +1,189 @@
+{
+    "level": [
+        {
+            "name": "净资产",
+            "list": [
+                {
+                    "name": "0元"
+                },
+                {
+                    "name": "5万元"
+                },
+                {
+                    "name": "10万元"
+                },
+                {
+                    "name": "50万元"
+                },
+                {
+                    "name": "100万元"
+                },
+                {
+                    "name": "500万元"
+                }
+            ]
+        },
+        {
+            "name": "会员等级",
+            "list": [
+                {
+                    "logo": "./images/level-basis.png",
+                    "level": "原始象"
+                },
+                {
+                    "logo": "./images/level-bronze.png",
+                    "level": "青铜象"
+                },
+                {
+                    "logo": "./images/level-silver.png",
+                    "level": "白银象"
+                },
+                {
+                    "logo": "./images/level-gold.png",
+                    "level": "黄金象"
+                },
+                {
+                    "logo": "./images/level-diamond.png",
+                    "level": "钻石象"
+                },
+                {
+                    "logo": "./images/level-niello.png",
+                    "level": "黑金象",
+                    "current":true
+                }
+            ]
+        }
+    ],
+    "member": [
+        {
+            "name": "基础权益",
+            "type": [
+                {
+                    "Typename": {
+                        "logo": "./images/icon-upgrade.png",
+                        "name": "升级礼"
+                    },
+                    "typeList": [
+                        false,
+                        true,
+                        true,
+                        false,
+                        true,
+                        true
+                    ]
+                },
+                {
+                    "Typename": {
+                        "logo": "./images/icon-birthday.png",
+                        "name": "生日礼"
+                    },
+                    "typeList": [
+                        true,
+                        true,
+                        true,
+                        true,
+                        true,
+                        true
+                    ]
+                },
+                {
+                    "Typename": {
+                        "logo": "./images/icon-birthday.png",
+                        "name": "生日礼"
+                    },
+                    "typeList": [
+                        true,
+                        true,
+                        true,
+                        true,
+                        false,
+                        true
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "增值权益",
+            "type": [
+                {
+                    "Typename": {
+                        "logo": "./images/icon-gold.png",
+                        "name": "宝相币加成"
+                    },
+                    "typeList": [
+                        null,
+                        "1.1倍",
+                        "1.2倍",
+                        "1.3倍",
+                        "1.4倍",
+                        "1.5倍"
+                    ]
+                },
+                {
+                    "Typename": {
+                        "logo": "./images/icon-mall.png",
+                        "name": "商城兑换折扣"
+                    },
+                    "typeList": [
+                        null,
+                        "98折",
+                        "97折",
+                        "96折",
+                        "95折",
+                        "9折"
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "尊享权益",
+            "type": [
+                {
+                    "Typename": {
+                        "logo": "./images/icon-customer.png",
+                        "name": "专属客服"
+                    },
+                    "typeList": [
+                        null,
+                        null,
+                        null,
+                        null,
+                        true,
+                        true
+                    ]
+                },
+                {
+                    "Typename": {
+                        "logo": "./images/icon-special.png",
+                        "name": "一对一资产顾问"
+                    },
+                    "typeList": [
+                        null,
+                        null,
+                        null,
+                        null,
+                        true,
+                        true
+                    ]
+                },
+                {
+                    "Typename": {
+                        "logo": "./images/icon-travel.png",
+                        "name": "境外旅游"
+                    },
+                    "typeList": [
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        true
+                    ]
+                }
+            ]
+        }
+    ],
+    "rule":"1、宝象金融根据会员投资的净资产，将会员分为不同等级，享受不同的权益和增值服务<br/> 2、净资产=在投金额（含直投标、月月丰、债权转让）+余额+添添金-负债（如个人消费贷）<br/> 3、会员升级实时更新，会员降级次月1日进行集中处理",
+    "login":true,
+    "loginInfo":"当前存量金额900,000元，距离下一级还差100,000元"
+}

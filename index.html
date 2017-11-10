@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="keywords" content="宝象金融是什么">
+    <meta name="description" content="添添金是宝象金融为您精心打造的活期产品，您存入添添金的资金经过撮合交易的方式，将投向真实优质债权项目，不仅可能得到较高收益，而且还能随时提取，方便灵活且不收取任何手续费。">
+    <title>VIP会员成长体系-宝象金融</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <div class="bx_wrap">
+        {header}
+        <div class="bx_main">
+            <div class="banner">
+                <img src="./images/banner-vip.jpg" />
+            </div>
+            <div class="vip-wrap" id="vip-con">
+                <!-- <div class="vip-table">
+                    <div class="vip-table-title">
+                        <i class="line-left"></i>
+                        <span>会员等级与权益</span>
+                        <i class="line-right"></i>
+                    </div>
+                    <div class="vip-list">
+                        <p class="table-title">会员等级规则</p>
+                        <table class="table-level">
+                            <tr>
+                                <td class="w-24">净资产</td>
+                                <td>1</td>
+                                <td>1</td>
+                                <td>1</td>
+                                <td>1</td>
+                                <td>1</td>
+                                <td>1</td>
+                            </tr>
+                            <tr>
+                                <td class="w-24">会员等级</td>
+                                <td>1</td>
+                                <td>1</td>
+                                <td>1</td>
+                                <td>1</td>
+                                <td>1</td>
+                                <td>1</td>
+                            </tr>
+                        </table>
+                        <p class="table-title">会员特权</p>
+                        <table>
+                            <tr>
+                                <td rowspan="2" class="w-12">基础权益</td>
+                                <td class="w-12">升级礼</td>
+                                <td>1</td>
+                                <td>2</td>
+                                <td>3</td>
+                                <td>4</td>
+                                <td>5</td>
+                                <td>6</td>
+                            </tr>
+                            <tr>
+                                <td class="w-12">升级礼</td>
+                                <td>1</td>
+                                <td>2</td>
+                                <td>3</td>
+                                <td>4</td>
+                                <td>5</td>
+                                <td>6</td>
+                            </tr>
+                            <tr>
+                                <td rowspan="2" class="w-12">基础权益</td>
+                                <td class="w-12">升级礼</td>
+                                <td>1</td>
+                                <td>2</td>
+                                <td>3</td>
+                                <td>4</td>
+                                <td>5</td>
+                                <td>6</td>
+                            </tr>
+                            <tr>
+                                <td class="w-12">升级礼</td>
+                                <td>1</td>
+                                <td>2</td>
+                                <td>3</td>
+                                <td>4</td>
+                                <td>5</td>
+                                <td>6</td>
+                            </tr>
+                            <tr>
+                                <td rowspan="3" class="w-12">基础权益</td>
+                                <td class="w-12">升级礼</td>
+                                <td>1</td>
+                                <td>2</td>
+                                <td>3</td>
+                                <td>4</td>
+                                <td>5</td>
+                                <td>6</td>
+                            </tr>
+                            <tr>
+                                <td class="w-12">升级礼</td>
+                                <td>1</td>
+                                <td>2</td>
+                                <td>3</td>
+                                <td>4</td>
+                                <td>5</td>
+                                <td>6</td>
+                            </tr>
+                            <tr>
+                                <td class="w-12">升级礼</td>
+                                <td>1</td>
+                                <td>2</td>
+                                <td>3</td>
+                                <td>4</td>
+                                <td>5</td>
+                                <td>6</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="vip-login">
+                        <button>立即登录</button>
+                        <p>立即登录查看我的会员等级</p>
+                    </div>
+                </div>
+                <div class="vip-rule">
+                    <p class="rule-title">会员说明</p>
+                    <div class="rule-txt">
+                        1、宝象金融根据会员投资的净资产，将会员分为不同等级，享受不同的权益和增值服务
+                        <br/> 2、净资产=在投金额（含直投标、月月丰、债权转让）+余额+添添金-负债（如个人消费贷）
+                        <br/> 3、会员升级实时更新，会员降级次月1日进行集中处理
+                    </div>
+                </div> -->
+            </div>
+        </div>
+    </div>
+    {copyright}
+    <script src="../js/jquery-1.11.1.min.js"></script>
+    <script src="../js/artTemplate.js"></script>
+    <script id="test" type="text/html">
+        <div class="vip-table">
+                <div class="vip-table-title">
+                    <i class="line-left"></i>
+                    <span>会员等级与权益</span>
+                    <i class="line-right"></i>
+                </div>
+                <div class="vip-list">
+                    <p class="table-title">会员等级规则</p>
+                    <table class="table-level">
+                        {{each level as value i}}
+                        {{if value.name=='净资产'}}
+                            <tr>
+                                <td class="w-258">{{value.name}}</td>
+                                {{each value.list as value i}}
+                                <td>{{value.name}}</td>
+                                {{/each}}
+                            </tr>
+                            {{else}}
+                            <tr>
+                                <td class="w-258">{{value.name}}</td>
+                                {{each value.list as value i}}
+                                <td>
+                                    <i class="{{value.current?'current':''}}"></i>
+                                    <img src="{{value.logo}}"/>{{value.level}}
+                                </td>
+                                {{/each}}
+                            </tr>
+                        {{/if}}
+                        {{/each}}
+                    </table>
+                    <p class="table-title">会员特权</p>
+                    <table class="table-member">
+                        {{each member as item i}}
+                            {{each item.type as value i}}
+                            <tr>
+                                {{if i==0}}
+                                <td rowspan="{{item.type.length}}" class="w-95">{{item.name}}</td>
+                                <td class="w-163"><img src="{{value.Typename.logo}}"/>{{value.Typename.name}}</td>
+                                {{else}}
+                                <td class="w-163"><img src="{{value.Typename.logo}}"/>{{value.Typename.name}}</td>
+                                {{/if}}
+                                {{each value.typeList as val index}}
+                                <td class="{{val==true?'select':''}}">{{val}}</td>
+                                {{/each}}
+                            </tr>
+                            {{/each}}
+                        {{/each}}
+                    </table>
+                    <div class="masking">
+                        <p>当前等级</p>
+                    </div>
+                </div>
+                <div class="vip-login">
+                    {{if !login}}
+                    <button>立即登录</button>
+                    <p>立即登录查看我的会员等级</p>
+                    {{else}}
+                    <p class="vip-info">{{loginInfo}}</p>
+                    {{/if}}
+                </div>
+            </div>
+            <div class="vip-rule">
+                <p class="rule-title">会员说明</p>
+                <div class="rule-txt">
+                        {{#rule}}
+                </div>
+            </div>
+    </script>
+    <script>
+        //供登录成功后调用
+        window.vipRefresh=function(){
+            location.reload(true);
+        }
+        $(function () {
+            $.get('./data/data.json', function (result) {
+                //渲染模板
+                var html = template('test', result);
+                document.getElementById('vip-con').innerHTML = html;
+
+
+                //计算当前等级
+                var elOffset=$('.current').offset(),    //当前等级在页面中的我位置
+                tdHeight=$('.table-level td').eq(0).outerHeight();  //td的高度
+                titleHeight=$('.table-title').outerHeight();    //title的高度
+                tableHeight=$('.vip-list').height();   //table的高度
+                elOffset.top-=tdHeight;
+                elOffset.height=tableHeight-titleHeight;
+                $('.masking').css(elOffset);
+                $(window).on('resize',function(){
+                    
+                })
+            })
+
+        })
+    </script>
+    <!-- 访问统计 start -->
+    <!-- <span style="display: none;">
+        <script>
+            var _hmt = _hmt || [];
+            (function () {
+                var s = document.getElementsByTagName("script")[0];
+                //百度统计
+                var hm = document.createElement("script");
+                hm.src = "//hm.baidu.com/hm.js?9d8516b072af1baf608b889209361cbe";
+                s.parentNode.insertBefore(hm, s);
+                //友盟统计
+                var ym = document.createElement("script");
+                ym.src = "//s4.cnzz.com/z_stat.php?id=1258672745";
+                s.parentNode.insertBefore(ym, s);
+            })();
+
+
+
+        </script>
+    </span> -->
+    <!-- 访问统计 end -->
+</body>
+
+</html>
