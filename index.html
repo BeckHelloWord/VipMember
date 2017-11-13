@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="keywords" content="宝象金融是什么">
-    <meta name="description" content="添添金是宝象金融为您精心打造的活期产品，您存入添添金的资金经过撮合交易的方式，将投向真实优质债权项目，不仅可能得到较高收益，而且还能随时提取，方便灵活且不收取任何手续费。">
+    <meta name="keywords" content="VIP会员成长体系-宝象金融">
+    <meta name="description" content="VIP会员成长体系-宝象金融">
     <title>VIP会员成长体系-宝象金融</title>
     <link rel="stylesheet" href="./css/style.css">
 </head>
@@ -19,7 +19,17 @@
                 <img src="./images/banner-vip.jpg" />
             </div>
             <div class="vip-wrap" id="vip-con">
-
+                <div id="template"></div>
+                <div class="vip-rule">
+                    <p class="rule-title">会员说明</p>
+                    <div class="rule-txt">
+                        <ul>
+                            <li>1、宝象金融根据会员投资的净资产，将会员分为不同等级，享受不同的权益和增值服务</li>
+                            <li>2、净资产=在投金额（含直投标、月月丰、债权转让）+余额+添添金-负债（如个人消费贷）</li>
+                            <li>3、会员升级实时更新，会员降级次月1日进行集中处理</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -50,7 +60,7 @@
                                 {{each value.list as value i}}
                                 <td>
                                     <i class="{{value.current?'current':''}}"></i>
-                                    <img src="{{value.logo}}"/>{{value.level}}
+                                    <img src="//bxwd-img.oss-cn-hangzhou.aliyuncs.com/{{value.logo}}"/>{{value.level}}
                                 </td>
                                 {{/each}}
                             </tr>
@@ -64,11 +74,11 @@
                             <tr>
                                 {{if i==0}}
                                 <td rowspan="{{item.type.length}}" class="w-95">{{item.name}}</td>
-                                <td class="w-163"><img src="{{value.Typename.logo}}"/>{{value.Typename.name}}</td>
+                                <td class="w-163"><img src="//bxwd-img.oss-cn-hangzhou.aliyuncs.com/{{value.typeName.logo}}"/>{{value.typeName.name}}</td>
                                 {{else}}
-                                <td class="w-163"><img src="{{value.Typename.logo}}"/>{{value.Typename.name}}</td>
+                                <td class="w-163"><img src="//bxwd-img.oss-cn-hangzhou.aliyuncs.com/{{value.typeName.logo}}"/>{{value.typeName.name}}</td>
                                 {{/if}}
-                                {{each value.typeList as val index}}
+                                {{each value.typeShowList as val index}}
                                 <td class="{{val==true?'select':''}}">{{val}}</td>
                                 {{/each}}
                             </tr>
@@ -81,30 +91,21 @@
                 </div>
                 <div class="vip-login">
                     {{if !login}}
-                    <button>立即登录</button>
+                    <button class="js-login">立即登录</button>
                     <p>立即登录查看我的会员等级</p>
                     {{else}}
-                    <p class="vip-info">当前存量金额{{memberInfo.haveMoney}}元，距离下一级还差{{memberInfo.differMoney}}元</p>
+                    <p class="vip-info">{{loginInfo}}</p>
                     {{/if}}
-                </div>
-            </div>
-            <div class="vip-rule">
-                <p class="rule-title">会员说明</p>
-                <div class="rule-txt">
-                        {{#rule}}
                 </div>
             </div>
     </script>
     <script>
         //供登录成功后调用
-        window.vipRefresh = function () {
+        function loginSuccess() {
             location.reload(true);
         }
 
-
-
         $(function () {
-
 
             //计算当前等级
             var getOffset = function () {
@@ -118,26 +119,29 @@
             }
 
             //获取数据渲染模板
-            $.get('./data/data.json', function (result) {
+            $.get('/about/vip-explain.html', function (result) {
+
                 var html = template('test', result);
-                document.getElementById('vip-con').innerHTML = html;
-                if ((window.loginInfo && window.loginInfo.isLogin) && (result.memberInfo.haveMoney && result.memberInfo.differMoney)) {
+                document.getElementById('template').outerHTML = html;
+
+                //根据是否登录及用户信息判断选中当前等级
+                if (result.login && result.loginInfo) {
                     getOffset();
                     $(window).on('resize', function () {
                         getOffset();
                     })
                 }
-
-
             })
 
-
-
+            //登录
+            $('body').on('click', '.js-login', function () {
+                $('.js-login-btn').trigger('click');
+            })
 
         })
     </script>
     <!-- 访问统计 start -->
-    <!-- <span style="display: none;">
+    <span style="display: none;">
         <script>
             var _hmt = _hmt || [];
             (function () {
@@ -155,7 +159,7 @@
 
 
         </script>
-    </span> -->
+    </span>
     <!-- 访问统计 end -->
 </body>
 

@@ -21,12 +21,13 @@ a:link{color:#03c;}
 a:visited{color:#666;}
 a:hover{color:#f30;}
 a:active{color:#c30;}
+button{outline: none;font-family: "Microsoft YaHei", Arial, Helvetica, sans-serif;}
 .fr{float: right;}
 .fl{float: left;}
 .clearfix::before{content: ' '; display: table;}
 .clearfix::after{content: ' '; display: table; clear: both;}
 /* ===================================初始化样式=================================== */
-.bx_wrap{min-width: 1200px;overflow: hidden;}
+.bx_wrap{min-width: 1200px;overflow: hidden;font-family: "Microsoft YaHei", Arial, Helvetica, sans-serif;}
 .banner img{position: relative;left:50%;margin-left:-960px;width:1920px;}
 .vip-wrap{width:1200px;margin:38px auto 54px;}
 .vip-table{padding:54px 71px;border:1px solid #eaeaea;background: #fff;}
@@ -40,7 +41,7 @@ a:active{color:#c30;}
 .vip-table-title i.line-right:before{top:-7px; left:0;}
 .vip-list{ margin:40px 0; border-top:1px solid #f1f1f1; font-size:16px; color:#666;}
 .vip-list table{table-layout: fixed; width:100%;}
-.vip-list .table-member img{margin-right:10px;}
+.vip-list .table-member img{width:20px;margin-right:10px;}
 .vip-list .table-title{background: #f8f9ff;}
 .vip-list table td,
 .vip-list .table-title{height:42px;line-height: 42px;text-align: center;border-left:1px solid #f1f1f1;border-right:1px solid #f1f1f1;}

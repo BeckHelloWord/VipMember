@@ -27,29 +27,29 @@
             "name": "会员等级",
             "list": [
                 {
-                    "logo": "./images/level-basis.png",
+                    "logo": "upload/image/1711/cb5e0800-d40a-4137-9f45-7c86ba2488a7.png",
                     "level": "原始象"
                 },
                 {
-                    "logo": "./images/level-bronze.png",
+                    "logo": "upload/image/1711/8f6fa6fe-f6df-43a3-8c5d-789d065bcf53.png",
                     "level": "青铜象"
                 },
                 {
-                    "logo": "./images/level-silver.png",
-                    "level": "白银象"
+                    "logo": "upload/image/1711/0a22c5f3-cf41-4233-b0a4-76768accd56e.png",
+                    "level": "白银象",
+                    "current":true
                 },
                 {
-                    "logo": "./images/level-gold.png",
+                    "logo": "upload/image/1711/ec594dec-6ffc-4930-8f72-624e1c2f6697.png",
                     "level": "黄金象"
                 },
                 {
-                    "logo": "./images/level-diamond.png",
+                    "logo": "upload/image/1711/0cadd558-8b87-4de7-b7d0-4719df561a85.png",
                     "level": "钻石象"
                 },
                 {
-                    "logo": "./images/level-niello.png",
-                    "level": "黑金象",
-                    "current":true
+                    "logo": "upload/image/1711/c6d27821-476d-4538-8b09-793914fa6f72.png",
+                    "level": "黑金象"
                 }
             ]
         }
@@ -59,46 +59,36 @@
             "name": "基础权益",
             "type": [
                 {
-                    "Typename": {
-                        "logo": "./images/icon-upgrade.png",
+                    "typeName": {
+                        "logo": "upload/image/1711/4874a7cc-1c94-41e7-a2f7-c5879ce20560.png",
                         "name": "升级礼"
                     },
-                    "typeList": [
-                        false,
+                    "typeShowList": [
                         true,
                         true,
-                        false,
+                        true,
+                        true,
                         true,
                         true
-                    ]
+                    ],
+                    "category": "基础权益",
+                    "seq": 100
                 },
                 {
-                    "Typename": {
-                        "logo": "./images/icon-birthday.png",
+                    "typeName": {
+                        "logo": "upload/image/1711/398b43aa-0a33-4b67-aa8b-2fdfd15cfaf4.png",
                         "name": "生日礼"
                     },
-                    "typeList": [
+                    "typeShowList": [
                         true,
                         true,
                         true,
                         true,
                         true,
                         true
-                    ]
-                },
-                {
-                    "Typename": {
-                        "logo": "./images/icon-birthday.png",
-                        "name": "生日礼"
-                    },
-                    "typeList": [
-                        true,
-                        true,
-                        true,
-                        true,
-                        false,
-                        true
-                    ]
+                    ],
+                    "category": "基础权益",
+                    "seq": 100
                 }
             ]
         },
@@ -106,32 +96,36 @@
             "name": "增值权益",
             "type": [
                 {
-                    "Typename": {
-                        "logo": "./images/icon-gold.png",
-                        "name": "宝相币加成"
+                    "typeName": {
+                        "logo": "upload/image/1711/baad47e0-3f24-4605-9248-6cd5695905d3.png",
+                        "name": "宝象币加成"
                     },
-                    "typeList": [
-                        null,
+                    "typeShowList": [
+                        false,
                         "1.1倍",
                         "1.2倍",
                         "1.3倍",
                         "1.4倍",
                         "1.5倍"
-                    ]
+                    ],
+                    "category": "增值权益",
+                    "seq": 100
                 },
                 {
-                    "Typename": {
-                        "logo": "./images/icon-mall.png",
+                    "typeName": {
+                        "logo": "upload/image/1711/a1d5af2f-a75c-40ed-af91-dd5044fb8d3a.png",
                         "name": "商城兑换折扣"
                     },
-                    "typeList": [
-                        null,
+                    "typeShowList": [
+                        false,
                         "98折",
                         "97折",
                         "96折",
                         "95折",
                         "9折"
-                    ]
+                    ],
+                    "category": "增值权益",
+                    "seq": 100
                 }
             ]
         },
@@ -139,54 +133,56 @@
             "name": "尊享权益",
             "type": [
                 {
-                    "Typename": {
-                        "logo": "./images/icon-customer.png",
+                    "typeName": {
+                        "logo": "upload/image/1711/605c64ef-5920-47d4-b174-3c8ada8e9ec8.png",
                         "name": "专属客服"
                     },
-                    "typeList": [
-                        null,
-                        null,
-                        null,
-                        null,
+                    "typeShowList": [
+                        false,
+                        false,
+                        false,
+                        false,
                         true,
                         true
-                    ]
+                    ],
+                    "category": "尊享权益",
+                    "seq": 100
                 },
                 {
-                    "Typename": {
-                        "logo": "./images/icon-special.png",
+                    "typeName": {
+                        "logo": "upload/image/1711/f7c80d47-ef57-45d6-a7db-0485a8b73c14.png",
                         "name": "一对一资产顾问"
                     },
-                    "typeList": [
-                        null,
-                        null,
-                        null,
-                        null,
+                    "typeShowList": [
+                        false,
+                        false,
+                        false,
+                        false,
                         true,
                         true
-                    ]
+                    ],
+                    "category": "尊享权益",
+                    "seq": 100
                 },
                 {
-                    "Typename": {
-                        "logo": "./images/icon-travel.png",
+                    "typeName": {
+                        "logo": "upload/image/1711/1bf6e9b4-12a1-405d-be68-e25cd4ed0315.png",
                         "name": "境外旅游"
                     },
-                    "typeList": [
-                        null,
-                        null,
-                        null,
-                        null,
-                        null,
+                    "typeShowList": [
+                        false,
+                        false,
+                        false,
+                        false,
+                        false,
                         true
-                    ]
+                    ],
+                    "category": "尊享权益",
+                    "seq": 100
                 }
             ]
         }
     ],
-    "rule":"1、宝象金融根据会员投资的净资产，将会员分为不同等级，享受不同的权益和增值服务<br/> 2、净资产=在投金额（含直投标、月月丰、债权转让）+余额+添添金-负债（如个人消费贷）<br/> 3、会员升级实时更新，会员降级次月1日进行集中处理",
-    "login":true,
-    "memberInfo":{
-        "haveMoney":"9000,000",
-        "differMoney":"100,000"
-    }
+    "login": true,
+    "loginInfo": "当前存量金额900,000元，距离下一级还差100,000元"
 }
