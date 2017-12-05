@@ -17,16 +17,13 @@ textarea{outline: 0; resize: none;}
 input{vertical-align:middle;}
 img{vertical-align: middle;}
 a{text-decoration: none; background: transparent; -webkit-tap-highlight-color: transparent;outline:none;}
-a:link{color:#03c;}
-a:visited{color:#666;}
-a:hover{color:#f30;}
-a:active{color:#c30;}
 button{outline: none;font-family: "Microsoft YaHei", Arial, Helvetica, sans-serif;}
 .fr{float: right;}
 .fl{float: left;}
 .clearfix::before{content: ' '; display: table;}
 .clearfix::after{content: ' '; display: table; clear: both;}
 /* ===================================初始化样式=================================== */
+body{background: #f2f2f2;}
 .bx_wrap{min-width: 1200px;overflow: hidden;font-family: "Microsoft YaHei", Arial, Helvetica, sans-serif;}
 .banner img{position: relative;left:50%;margin-left:-960px;width:1920px;}
 .vip-wrap{width:1200px;margin:38px auto 54px;}
@@ -46,16 +43,21 @@ button{outline: none;font-family: "Microsoft YaHei", Arial, Helvetica, sans-seri
 .vip-list table td,
 .vip-list .table-title{height:42px;line-height: 42px;text-align: center;border-left:1px solid #f1f1f1;border-right:1px solid #f1f1f1;}
 .vip-list table td{position: relative; font-size:14px;color:#686868;border:1px solid #f1f1f1; vertical-align: middle;}
-.vip-list .table-level td img{position: relative;top:-3px; margin-right:6px;}
+.vip-list .table-level td img{position: relative;top:-3px; margin-right:6px;width:20%;}
 .vip-list table .w-258{width:258px;font-size:16px;background: #f8f9ff;}
 .vip-list table .w-95{width:95px;font-size:16px;background: #f8f9ff;}
 .vip-list table .w-163{width:163px;padding-left:24px;text-align:left;background: #f8f9ff;}
+.formula{margin:20px 0;font-size:12px;color:#999;}
 .vip-login{line-height:2.5;font-size:12px;color:#999;text-align: center;}
-.vip-login button{width:276px;height:50px;line-height: 50px;font-size:20px;color:#fff;background: #ecb81c;border:none;border-radius: 5px;}
-.vip-rule{margin-top:18px;padding:28px 26px;border:1px solid #eaeaea;}
+.vip-login button,
+.vip-login .btn-details{display: inline-block; width:276px;height:50px;line-height: 50px;font-size:20px;color:#fff;background: #ecb81c;border:none;border-radius: 5px;}
+.vip-rule{margin-top:18px;padding:0 0 28px 26px;border:1px solid #eaeaea;background: #fff;}
+.vip-rule .QA{margin-top:30px;}
+.vip-rule .QA:not(:last-child){border-bottom:1px dotted #eaeaea;}
 .vip-rule .rule-title{position: relative;padding-left:24px; font-size:14px;font-weight: bold; color:#333;}
 .vip-rule .rule-title::before{content: ""; position: absolute; top:3px; left:2px; width:14px; height: 14px; background: url('../images/icon-arrow.png') no-repeat center;}
-.vip-rule .rule-txt{margin-top:10px;line-height: 2; font-size:14px;color:#999;}
+.vip-rule .rule-txt{padding:15px 0;line-height: 1; font-size:14px;color:#999;}
+.vip-rule .rule-txt li{line-height: 2;}
 .vip-list td.select{background: url('../images/select.png') no-repeat center;}
 .vip-info{font-size:14px;color:#999;}
 .current{position: absolute;top:-1px;left:-1px;}

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta id="viewport" name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>VIP会员成长体系-宝象金融</title>
+    <link rel="stylesheet" href="./css/mobile.min.css">
+</head>
+
+<body>
+    <section class="vip">
+        <div class="banner">
+            <img src="./images/mobile-banner.jpg" />
+        </div>
+        <div class="vip-warp">
+            <div id="template"></div>
+            <div class="QA">
+                <div>
+                    <h2>什么是会员等级？</h2>
+                    <ul>
+                        <li>1、宝象金融根据会员的净资产（可去“我的-净资产”查看），将会员分为不同等级，享受不同的权益和增值服务。</li>
+                        <li>2、会员净资产越多，相应的会员等级越高，可享受的会员权益越多。净资产越少，相应的会员等级越低，可享受的会员权益越少。</li>
+                    </ul>
+                </div>
+                <div>
+                    <h2>如何提升会员等级？</h2>
+                    <p>会员在宝象金融平台的净资产增加且达到下一等级标准后，即可在2小时内更新会员等级。若会员净资产减少，不满足当前等级标准，等级会在次月1日更新。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- <script src="../js/jquery-1.11.1.min.js"></script>
+    <script src="../js/artTemplate.js"></script> -->
+    <script id="test" type="text/html">
+            <div class="grade clearfix">
+                <p class="grade-title">会员等级与权益</p>
+                <p class="title-txt">会员升级规则</p>
+                <table>
+                    <tr> 
+                        {{each level as item index}}
+                        {{if item.name=='会员等级'}}
+                        <th>{{item.name}}</th>
+                        {{/if}}
+                        {{/each}}
+                    </tr>
+                   
+                        {{each level as item index}}
+                        {{if item.name=='会员等级'}}
+                            {{each item.list as val i}}
+                            <tr>
+                                <td><i class="{{val.current?'current':''}}"></i><img src="//bxwd-img.oss-cn-hangzhou.aliyuncs.com/{{val.logo}}"/>{{val.level}}</td>
+                            </tr>
+                            {{/each}}
+                        {{/if}}
+                        {{/each}}
+                   
+                </table>
+                <table>
+                        <tr> 
+                            {{each level as item index}}
+                               {{if item.name=='净资产'}}
+                            <th>{{item.name}}</th>
+                               {{/if}}
+                            {{/each}}
+                        </tr>
+                        <tr>
+                            {{each level as item index}}
+                              {{if item.name=='净资产'}}
+                                {{each item.list as val i}}
+                                <tr>
+                                   <td>{{val.name}}</td>
+                                </tr>
+                                {{/each}}
+                            {{/if}}
+                            {{/each}}
+                        </tr>
+                    </table>
+                    <span class="decor decor-left"></span>
+                    <span class="decor decor-right"></span>
+            </div>
+            <div class="special">
+                <p class="title-txt">会员特权</p>
+                <table class="table-member">
+                        <tr>
+                            <th colspan="2"></th>
+                            {{each level[1].list as val index}}
+                            <th><i class="{{val.current?'current':''}}"></i>{{val.level}}</th>
+                            {{/each}}
+                        </tr>
+                        {{each member as item i}}
+                            {{each item.type as value i}}
+                            <tr>
+                                {{if i==0}}
+                                <td rowspan="{{item.type.length}}" class="w-95">{{item.name}}</td>
+                                <td class="w-163"><img src="//bxwd-img.oss-cn-hangzhou.aliyuncs.com/{{value.typeName.logo}}"/><p>{{value.typeName.name}}</p></td>
+                                {{else}}
+                                <td class="w-163"><img src="//bxwd-img.oss-cn-hangzhou.aliyuncs.com/{{value.typeName.logo}}"/><p>{{value.typeName.name}}</p></td>
+                                {{/if}}
+                                {{each value.typeShowList as val index}}
+                                <td class="{{val==true?'select':''}}">{{val}}</td>
+                                {{/each}}
+                            </tr>
+                            {{/each}}
+                        {{/each}}
+                    </table>
+                <p class="formula">x=净资产=在投金额（含直投标、月月丰、债权转让）+余额+添添金-总负债（如个人消费 贷、逾期罚款等）
+                </p>
+                {{if !login}}
+                <button class="btn-login js-login">登录后查看权益详情</button>
+                {{else}}
+                <a href="//m.bxjr.com/topic/sign/" class="btn-details">查看权益详情</a>
+                <p>当前净资产为{{info.netAsset}}元{{if !info.status}}，距离下一级还差{{info.gapAsset}}元{{/if}}</p>
+                {{/if}}
+            </div>
+    </script>
+    <script>
+        $(function () {
+            //获取数据渲染模板
+            $.get('/level/vip-explain.html', function (result) {
+                var html = template('test', result);
+                document.getElementById('template').outerHTML = html;
+
+                //根据是否登录及用户信息判断选中当前等级
+                if (result.login) {
+                    //会员升级规则
+                    var superior = $('.grade .current').parent(),
+                        supWidth = superior.outerWidth() * 2,
+                        supHeight = superior.outerHeight();
+                    $('.grade .current').css({ 'width': supWidth, 'height': supHeight }).show();
+
+                    setTimeout(function () {
+                        var specialElm = $('.table-member').outerHeight();
+                        $('.special .current').css({ 'height': specialElm }).show();
+                    }, 400)
+
+                }
+            })
+            //登录
+            $('body').on('click', '.js-login', function () {
+                location.href = "/login/index.html?redirect=" + location.href;
+            })
+        })
+    </script>
+</body>
+
+</html>

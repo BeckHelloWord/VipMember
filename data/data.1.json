@@ -27,29 +27,29 @@
             "name": "会员等级",
             "list": [
                 {
-                    "logo": "upload/image/1711/cb5e0800-d40a-4137-9f45-7c86ba2488a7.png",
+                    "logo": "./images/level-basis.png",
                     "level": "原始象"
                 },
                 {
-                    "logo": "upload/image/1711/8f6fa6fe-f6df-43a3-8c5d-789d065bcf53.png",
+                    "logo": "./images/level-bronze.png",
                     "level": "青铜象"
                 },
                 {
-                    "logo": "upload/image/1711/0a22c5f3-cf41-4233-b0a4-76768accd56e.png",
+                    "logo": "./images/level-silver.png",
                     "level": "白银象"
                     
                 },
                 {
-                    "logo": "upload/image/1711/ec594dec-6ffc-4930-8f72-624e1c2f6697.png",
+                    "logo": "./images/level-gold.png",
                     "level": "黄金象",
                     "current":true
                 },
                 {
-                    "logo": "upload/image/1711/0cadd558-8b87-4de7-b7d0-4719df561a85.png",
+                    "logo": "./images/level-diamond.png",
                     "level": "钻石象"
                 },
                 {
-                    "logo": "upload/image/1711/c6d27821-476d-4538-8b09-793914fa6f72.png",
+                    "logo": "./images/level-niello.png",
                     "level": "黑金象"
                 }
             ]
@@ -61,7 +61,7 @@
             "type": [
                 {
                     "typeName": {
-                        "logo": "upload/image/1711/4874a7cc-1c94-41e7-a2f7-c5879ce20560.png",
+                        "logo": "./images/icon-upgrade.png",
                         "name": "升级礼"
                     },
                     "typeShowList": [
@@ -77,7 +77,7 @@
                 },
                 {
                     "typeName": {
-                        "logo": "upload/image/1711/398b43aa-0a33-4b67-aa8b-2fdfd15cfaf4.png",
+                        "logo": "./images/icon-birthday.png",
                         "name": "生日礼"
                     },
                     "typeShowList": [
@@ -98,7 +98,7 @@
             "type": [
                 {
                     "typeName": {
-                        "logo": "upload/image/1711/baad47e0-3f24-4605-9248-6cd5695905d3.png",
+                        "logo": "./images/icon-gold.png",
                         "name": "宝象币加成"
                     },
                     "typeShowList": [
@@ -114,7 +114,7 @@
                 },
                 {
                     "typeName": {
-                        "logo": "upload/image/1711/a1d5af2f-a75c-40ed-af91-dd5044fb8d3a.png",
+                        "logo": "./images/icon-mall.png",
                         "name": "商城兑换折扣"
                     },
                     "typeShowList": [
@@ -135,7 +135,7 @@
             "type": [
                 {
                     "typeName": {
-                        "logo": "upload/image/1711/605c64ef-5920-47d4-b174-3c8ada8e9ec8.png",
+                        "logo": "./images/icon-customer.png",
                         "name": "专属客服"
                     },
                     "typeShowList": [
@@ -151,7 +151,7 @@
                 },
                 {
                     "typeName": {
-                        "logo": "upload/image/1711/f7c80d47-ef57-45d6-a7db-0485a8b73c14.png",
+                        "logo": "./images/icon-special.png",
                         "name": "一对一资产顾问"
                     },
                     "typeShowList": [
@@ -167,7 +167,7 @@
                 },
                 {
                     "typeName": {
-                        "logo": "upload/image/1711/1bf6e9b4-12a1-405d-be68-e25cd4ed0315.png",
+                        "logo": "./images/icon-travel.png",
                         "name": "境外旅游"
                     },
                     "typeShowList": [
@@ -185,9 +185,5 @@
         }
     ],
     "login": true,
-    "info": {
-        "netAsset":111111,
-        "gapAsset":111111,
-        "status":false
-    }
+    "loginInfo": "当前存量金额900,000元，距离下一级还差100,000元"
 }

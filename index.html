@@ -19,24 +19,31 @@
                 <img src="./images/banner-vip.jpg" />
             </div>
             <div class="vip-wrap" id="vip-con">
-                <div id="template"></div>
+                <div id="domTemplate"></div>
                 <div class="vip-rule">
-                    <p class="rule-title">会员说明</p>
-                    <div class="rule-txt">
-                        <ul>
-                            <li>1、宝象金融根据会员投资的净资产，将会员分为不同等级，享受不同的权益和增值服务</li>
-                            <li>2、净资产=在投金额（含直投标、月月丰、债权转让）+余额+添添金-负债（如个人消费贷）</li>
-                            <li>3、会员升级实时更新，会员降级次月1日进行集中处理</li>
-                        </ul>
+                    <div class="QA">
+                        <p class="rule-title">什么是会员等级？</p>
+                        <div class="rule-txt">
+                            <ul>
+                                <li>1、宝象金融根据会员的净资产（可去“我的-净资产”查看），将会员分为不同等级，享受不同的权益和增值服务。</li>
+                                <li>2、会员净资产越多，相应的会员等级越高，可享受的会员权益越多。净资产越少，相应的会员等级越低，可享受的会员权益越少。</li>
+                            </ul>
+                        </div>
                     </div>
+                    <div class="QA">
+                            <p class="rule-title">如何提升会员等级？</p>
+                            <div class="rule-txt">
+                                <p>会员在宝象金融平台的净资产增加且达到下一等级标准后，即可在2小时内更新会员等级。若会员净资产减少，不满足当前等级标准，等级会在次月1日更新。</p>
+                            </div>
+                        </div>
                 </div>
             </div>
         </div>
     </div>
     {copyright}
-    <script src="../js/jquery-1.11.1.min.js"></script>
-    <script src="../js/artTemplate.js"></script>
-    <script id="test" type="text/html">
+    <!-- <script src="../js/jquery-1.11.1.min.js"></script>
+    <script src="../js/artTemplate.js"></script> -->
+    <script id="domElement" type="text/html">
         <div class="vip-table">
                 <div class="vip-table-title">
                     <i class="line-left"></i>
@@ -44,7 +51,7 @@
                     <i class="line-right"></i>
                 </div>
                 <div class="vip-list">
-                    <p class="table-title">会员等级规则</p>
+                    <p class="table-title">会员升级规则</p>
                     <table class="table-level">
                         {{each level as value i}}
                         {{if value.name=='净资产'}}
@@ -89,12 +96,13 @@
                         <p>当前等级</p>
                     </div>
                 </div>
+                <p class="formula">x=净资产=在投金额（含直投标、月月丰、债权转让）+余额+添添金-总负债（如个人消费贷、逾期罚款等）</p>
                 <div class="vip-login">
                     {{if !login}}
-                    <button class="js-login">立即登录</button>
-                    <p>立即登录查看我的会员等级</p>
+                    <button class="js-login">登录后查看权益详情</button>
                     {{else}}
-                    <p class="vip-info">{{loginInfo}}</p>
+                    <a href="//www.bxjr.com/topic/sign/" class="btn-details">查看权益详情</a>
+                    <p class="vip-info">当前净资产为{{info.netAsset}}元{{if !info.status}}，距离下一级还差{{info.gapAsset}}元{{/if}}</p>
                     {{/if}}
                 </div>
             </div>
@@ -110,22 +118,23 @@
             //计算当前等级
             var getOffset = function () {
                 var elOffset = $('.current').offset(),    //当前等级在页面中的我位置
-                    tdHeight = $('.table-level td').eq(0).outerHeight();  //td的高度
-                titleHeight = $('.table-title').outerHeight();    //title的高度
+                    navHeight=$('.bx-nav-wrap').outerHeight(),//banner高度
+                    tdHeight = $('.table-level td').eq(0).outerHeight(),  //td的高度
+                titleHeight = $('.table-title').outerHeight(),    //title的高度
                 tableHeight = $('.vip-list').height();   //table的高度
-                elOffset.top -= tdHeight;
+                elOffset.top -= (tdHeight+navHeight);
                 elOffset.height = tableHeight - titleHeight;
                 $('.masking').css(elOffset).show();
             }
 
             //获取数据渲染模板
-            $.get('/about/vip-explain.html', function (result) {
+            $.get('/level/vip-explain.html', function (result) {
 
-                var html = template('test', result);
-                document.getElementById('template').outerHTML = html;
+                var html = template('domElement', result);
+                document.getElementById('domTemplate').outerHTML = html;
 
                 //根据是否登录及用户信息判断选中当前等级
-                if (result.login && result.loginInfo) {
+                if (result.login) {
                     getOffset();
                     $(window).on('resize', function () {
                         getOffset();
